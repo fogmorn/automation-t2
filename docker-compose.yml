@@ -9,6 +9,10 @@ services:
     ports:
       - "22001:22"
     command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
+    volumes:
+      - type: volume
+        source: front1www5
+        target: /var/www/html/site
   build1:
     container_name: "build1.${BUILD_NUMBER}"
     privileged: true
@@ -16,6 +20,8 @@ services:
       context: .
     ports:
       - "22002:22"
+    volumes:
+      - front1www5:/var/www/html/site
     command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
   build2:
     container_name: "build2.${BUILD_NUMBER}"
@@ -24,4 +30,9 @@ services:
       context: .
     ports:
       - "22003:22"
+    volumes:
+      - front1www5:/var/www/html/site
     command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
+
+volumes:
+  front1www5:
