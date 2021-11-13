@@ -20,7 +20,7 @@
       state: absent
   - name: Add site files
     ansible.builtin.copy:
-      src: ./front/static_site/
+      src: ./front/site_static/
       dest: /var/www/html/site/
       owner: root
       group: nginx
