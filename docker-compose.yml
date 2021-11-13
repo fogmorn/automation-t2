@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  front1:
+    container_name: "front1.${BUILD_NUMBER}"
+    privileged: true
+    build:
+      context: .
+    ports:
+      - 22001:22
+    command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
