@@ -20,7 +20,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                ansiblePlaybook credentialsId: 'ansible1', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.ini', playbook: 'deploy.yml'
+                ansiblePlaybook credentialsId: 'ansible1', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.ini', limit: 'front1', playbook: 'deploy.yml'
+                ansiblePlaybook credentialsId: 'ansible1', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.ini', limit: 'back1', playbook: 'deploy.yml'
             }
         }
     }

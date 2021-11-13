@@ -29,3 +29,23 @@
     ansible.builtin.command:
       argv:
         - nginx
+
+
+- name: Deploy backend server
+  hosts: back
+
+  tasks:
+  - name: Ensure php-fpm is at the latest version
+    ansible.builtin.apt:
+      update_cache: yes
+      name: php-fpm
+      state: latest
+  - name: Write the php-fpm pool template
+    ansible.builtin.template:
+      src: ./back/site.j2
+      dest: /etc/php/7.4/fpm/pool.d/
+  - name: Start php-fpm
+    ansible.builtin.command:
+      argv:
+        - php-fpm7.4
+        - -F
