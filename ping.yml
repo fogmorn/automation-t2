@@ -1,0 +1,6 @@
+---
+# file: ping.yml
+
+- name: "Get ping response"
+  tasks:
+  - action: ping

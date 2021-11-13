@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                ansibleAdHoc('ping') {
+                ansiblePlaybook('ping.yml') {
                     ansibleName('Ansible')
                     inventoryPath('hosts.ini')
                     credentialsId('ansible')
