@@ -7,5 +7,5 @@ services:
     build:
       context: .
     ports:
-      - 22001:22
+      - "22001:22"
     command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
