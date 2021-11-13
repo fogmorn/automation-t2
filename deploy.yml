@@ -23,7 +23,7 @@
       src: ./front/site_static/
       dest: /var/www/html/site/
       owner: root
-      group: nginx
+      group: www-data
       mode: 0644
   - name: Start nginx
     ansible.builtin.shell:
