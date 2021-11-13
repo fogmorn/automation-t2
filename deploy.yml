@@ -27,4 +27,4 @@
       mode: 0644
   - name: Start nginx
     ansible.builtin.command:
-      cmd: /etc/init.d/nginx start
+      cmd: nginx
