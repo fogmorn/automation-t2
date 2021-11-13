@@ -9,3 +9,19 @@ services:
     ports:
       - "22001:22"
     command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
+  build1:
+    container_name: "build1.${BUILD_NUMBER}"
+    privileged: true
+    build:
+      context: .
+    ports:
+      - "22002:22"
+    command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
+  build2:
+    container_name: "build2.${BUILD_NUMBER}"
+    privileged: true
+    build:
+      context: .
+    ports:
+      - "22003:22"
+    command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
