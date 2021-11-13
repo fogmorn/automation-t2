@@ -1,0 +1,29 @@
+---
+# file: deploy.yml
+
+- name: Deploy fronend server
+  hosts: front
+
+  tasks:
+  - name: Ensure nginx is at the latest version
+    ansible.builtin.apt:
+      update_cache: yes
+      name: nginx
+      state: latest
+  - name: Write the nginx config file
+    ansible.builtin.copy:
+      src: ./front/nginx_conf/site.conf
+      dest: /etc/nginx/conf.d/
+  - name: Remove nginx default virtualhost
+    ansible.builtin.rm:
+      path: /etc/nginx/conf.d/default.conf
+      state: absent
+  - name: Add site files
+    ansible.builtin.copy:
+      src: ./front/static_site/
+      dest: /var/www/html/site/
+      owner: root
+      group: nginx
+      mode: 0644
+  - name: Start nginx
+    ansible.builtin.shell: nginx -g 'daemon off;'
