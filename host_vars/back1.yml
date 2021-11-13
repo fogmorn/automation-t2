@@ -1,0 +1,3 @@
+---
+# file: host_vars/back1.yml
+pool_port: "9000"

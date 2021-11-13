@@ -40,10 +40,14 @@
       update_cache: yes
       name: php-fpm
       state: latest
+  - name: Remove fpm www pool
+    ansible.builtin.file:
+      path: /etc/php/7.4/fpm/pool.d/www.conf
+      state: absent
   - name: Write the php-fpm pool template
     ansible.builtin.template:
       src: ./back/site.j2
-      dest: /etc/php/7.4/fpm/pool.d/
+      dest: /etc/php/7.4/fpm/pool.d/site.conf
   - name: Start php-fpm
     ansible.builtin.command:
       argv:
