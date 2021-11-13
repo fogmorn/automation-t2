@@ -16,6 +16,7 @@ services:
         target: /var/www/html/site
   back1:
     container_name: "back1.${BUILD_NUMBER}"
+    hostname: back1-add
     privileged: true
     build:
       context: .
@@ -27,6 +28,7 @@ services:
     command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
   back2:
     container_name: "back2.${BUILD_NUMBER}"
+    hostname: back2-multiply
     privileged: true
     build:
       context: .
