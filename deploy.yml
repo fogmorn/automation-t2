@@ -48,6 +48,10 @@
     ansible.builtin.template:
       src: ./back/site.j2
       dest: /etc/php/7.4/fpm/pool.d/site.conf
+  - name: Create /run/php directory
+    ansible.builtin.file:
+      path: /run/php
+      state: directory
   - name: Start php-fpm
     ansible.builtin.command:
       argv:
