@@ -26,5 +26,4 @@
       group: www-data
       mode: 0644
   - name: Start nginx
-    ansible.builtin.command:
-      cmd: nginx
+    ansible.builtin.command: nginx
