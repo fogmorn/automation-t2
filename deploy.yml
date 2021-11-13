@@ -27,4 +27,4 @@
       mode: 0644
   - name: Start nginx
     ansible.builtin.shell:
-      cmd: nginx -g 'daemon off;'
+      cmd: nginx
