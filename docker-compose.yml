@@ -8,7 +8,7 @@ services:
       context: .
     ports:
       - "22001:22"
-      - "80:80"
+      - "9280:80"
     command: /usr/sbin/sshd -D -f /etc/ssh/sshd_config
     volumes:
       - type: volume
