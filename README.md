@@ -54,3 +54,7 @@
 <details><summary>Добавление ключа в Jenkins</summary>
   <img src="https://user-images.githubusercontent.com/49227124/147830348-98a75786-6a45-4363-93b5-e5329812b4ce.png" alt="Jenkins_ansible_ssh_key"/>
 </details>
+
+<details><summary>Стадии сборки в Jenkins</summary>
+  <img src="https://user-images.githubusercontent.com/49227124/147831683-8c2cb98b-67ba-49d6-85ec-04e5778c8c9d.png" alt="Jenkins_stage_view"/>
+</details>
